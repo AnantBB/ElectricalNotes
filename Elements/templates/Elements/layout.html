@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="{% static 'Elements/master.css' %}">
+    <script src="{% static 'res_cal.js' %}"></script>
+    <link rel="stylesheet" href="">    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">       
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<style>
+    .mytextarea {
+        height: 36px;
+        width: 100px;
+        background-color: white;
+        color: black;
+        text-align: left;
+        padding-left: 10px;
+        padding-right: 20px;    
+    }
+    .mybutton {
+        background-color:blue; 
+        width:200px; color:white; 
+        border-radius: 8px;
+        font-size:19px;   
+        padding:13px 13px 13px 13px; 
+        font-family: 'Arial, Helvetica, sans-serif';
+    }    
+</style>
+<script>
+    function reposted() {             
+        material_selected();
+        ambient_temp_selected();
+        cond_weigth_calc();
+        diss_area_selected();
+        document.getElementById("id_temperature").value = 0;
+        document.getElementById("id_internal_Energy").value = 0;
+        document.getElementById("id_hot_Resistance").value = 0;
+    }
+</script>
+<body onload="reposted()">
+    <div class="row" style="width: 97%;margin-left: 20px;">
+        <nav class="navbar navbar-expand-lg" style="background-color:#5122A1;height: 50px;">
+            <a style="color: white;padding-left: 80px; font-size: 20px; font-weight:400;" href="/">Elements</a>
+            <a id="menu_ele" style="color: white;padding-left: 80px; font-size: 20px; font-weight:400;" href="res_calc">Design</a>
+            <a style="color: white;padding-left: 850px; font-size: 20px; font-weight:400; text-underline-position:above;" href="help">Help</a>
+        </nav>        
+    </div>    
+    <div class="row" style="padding-top: 5px; padding-left: 15px;">
+        {% if SB == True %}
+            <div class="col-sm-2" >
+                <ul class="accordion accordion-flush list-unstyled">
+                    <li class="accordion-item border-bottom-0">                        
+                        <a  id="button0"  class="mybutton" type="button" style="padding-left: 70px;"  href='/res_info' >
+                            Resistor  
+                        </a>
+                        <a  id="button1"  class="mybutton" type="button" style="margin-top:3px;  padding-left: 70px;"  href='/indc_info' >
+                            Inductor
+                        </a>
+                        <button  id="button0"  class="mybutton" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseFive" onclick="show_menu('Capacitor')" >
+                            Capacitor
+                        </button>
+                        <button  id="button0"  class="mybutton" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseFive" onclick="show_menu('Source')" >
+                            Source
+                        </button>
+                        <button  id="button0"  class="mybutton" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseFive" onclick="show_menu('Diode')" >
+                            Diode
+                        </button>
+                        <button  id="button0"  class="mybutton" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseFive" onclick="show_menu('Transistor')" >
+                            Transistor
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        {% endif %}                        
+            {% block content %}
+
+            {% endblock %}                         
+    </div>
+        
+</body>     
+</html>

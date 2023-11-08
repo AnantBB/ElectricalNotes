@@ -1,0 +1,137 @@
+{% extends "Elements/layout.html" %}
+{% load static %}
+{% block content %}    
+<style>
+    .td1{
+        width:200px;
+        border: 1px solid blue; 
+        padding:8px;
+    }
+    .td2{
+        width:300px;
+        border: 1px solid blue; 
+        padding:8px;
+    }
+</style> 
+    <form method="post"  action="/res_grph">
+        {% csrf_token %}               
+        <div class="row">        
+            <div class="col-sm-7" style="margin: 0px;">
+            <table>
+                <tr >                     
+                    <div style="margin-left:10px; margin-bottom: 0px; width: 780px; height: 500px; ">  <!-- border: 1px solid blue; -->
+                        <img src="data:image/png;base64,{{ graph1 }}" alt="Resistance Graph" class="blog-image" style="width: 750px; height: 480px; margin-left: 20px;">                        
+                    </div>                                           
+                    <div style="margin-left:10px; margin-bottom: 0px; width: 780px; height: 500px;" >  <!-- border: 1px solid blue; -->
+                        <img src="data:image/png;base64,{{ graph2 }}" alt="Temperature Graph" class="blog-image" style="width: 750px; height: 480px;margin-left: 20px;">
+				    </div>                       
+                    <div style="margin-left:10px; margin-bottom: 0px; width: 780px; height: 500px;" >  <!-- border: 1px solid blue; -->
+                        <img src="data:image/png;base64,{{ graph3 }}" alt="Internal Energy Graph" class="blog-image" style="width: 750px; height: 480px;margin-left: 20px;">
+				    </div>                                           
+                </tr>
+            </table>        
+            </div>            
+                <div class="col-sm-5" style="width: 520px;margin-left: 20px;">                    
+                    <table>                
+                        <tr>
+                            <em style="color:forestgreen  ; font-size: 30px; margin-left: 140px;">
+                                Wire Wound Resistor
+                            </em>
+                        </tr>
+                        <tr >
+                            <td class="td1">{{form.wire_length.label_tag}}</td>
+                            <td class="td2">{{form.wire_length}}&nbsp;&nbsp;<font size="4">meters</font></td>
+                        </tr>
+                        <tr >
+                            <td class="td1">{{form.cross_section.label_tag}}</td>
+                            <td class="td2">{{form.cross_section}}&nbsp;&nbsp;<font size="4">sq mm</font></td>
+                        </tr>
+                        <tr >
+                            <td class="td1">{{form.shape.label_tag}}</td>
+                            <td class="td2">{{form.shape}}</td>
+                        </tr>            
+                        <tr >
+                            <td class="td1">{{form.Width_to_thickness_ratio.label_tag}}</td>
+                            <td class="td2">{{form.Width_to_thickness_ratio}}</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">{{form.Radius_of_Chamfer.label_tag}}</td>
+                            <td class="td2">{{form.Radius_of_Chamfer}}&nbsp;&nbsp;<font size="4">mm</font></td>
+                        </tr>
+                        <tr>
+                            <td class="td1">{{form.material.label_tag}}</td>
+                            <td class="td2">{{form.material}}</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">{{form.temperature_coefficient.label_tag}}</td>                    
+                            <td class="td2"">{{form.temperature_coefficient}} &nbsp;&nbsp;<font size="4">per <sup>0</sup> C</font></td>
+                        </tr>
+                        <tr>
+                            <td class="td1">{{form.ambient_temperature.label_tag}}</td>
+                            <td class="td2">{{form.ambient_temperature}}&nbsp;&nbsp;<font size="4"><sup>0</sup> C</font></td>
+                        </tr>
+                        <tr>
+                            <td class="td1" >{{form.resistance.label_tag}}</td>
+                            <td class="td2"">{{form.resistance}}&nbsp;&nbsp;<font size="4">ohms</font></td>
+                        </tr>
+                        <tr>
+                            <td class="td1">{{form.dissipation_area.label_tag}}</td>
+                            <td class="td2">{{form.dissipation_area}}&nbsp;&nbsp;<font size="4">percent</font></td>
+                        </tr>
+                        <tr>
+                            <td class="td1">{{form.surface_area.label_tag}}</td>
+                            <td class="td2"">{{form.surface_area}}&nbsp;&nbsp;<font size="4">sq cm</font></td>
+                        </tr>
+                        <tr>
+                            <td class="td1">{{form.conductor_weight.label_tag}}</td>
+                            <td class="td2"">{{form.conductor_weight}}&nbsp;&nbsp;<font size="4">kg</font></td>
+                        </tr>
+                        <tr>
+                            <td class="td1">{{form.specific_heat.label_tag}}</td>
+                            <td class="td2"">{{form.specific_heat}}&nbsp;&nbsp;<font size="4">J/kg-<sup>0</sup> C</font></td>
+                        </tr>
+                        <tr >
+                            <td class="td1">{{form.applied_source.label_tag}}</td>
+                            <td class="td2">{{form.applied_source}}</td>
+                        </tr>
+                        <tr >
+                            <td class="td1">{{form.source_type.label_tag}}</td>
+                            <td class="td2">{{form.source_type}}</td>
+                        </tr>
+                        <tr >
+                            <td class="td1">{{form.frequency.label_tag}}</td>
+                            <td class="td2">{{form.frequency}}</td>
+                        </tr>
+                        <tr>
+                            <td class="td1">{{form.peak_source_value.label_tag}}</td>
+                            <td class="td2">{{form.peak_source_value}}&nbsp;&nbsp;<font size="4">volts</font></td>
+                        </tr>
+                        <tr>
+                            <td class="td1">{{form.period_of_source_connection.label_tag}}</td>
+                            <td class="td2">{{form.period_of_source_connection}}&nbsp;&nbsp;<font size="4">sec</font></td>
+                        </tr>
+                        <tr>
+                            <td class="td1">{{form.step.label_tag}}</td>
+                            <td class="td2">{{form.step}}&nbsp;&nbsp;<font size="4">mili-sec</font></td>
+                        </tr>
+                        <tr>
+                            <td class="td1">Temperature:</td>
+                            <td class="td2""><input type="number" disabled style="height: 32px; width:190px" value="{{TPmax}}">   &nbsp;&nbsp;<font size="4"> <sup>0</sup> C</font></td>
+                        </tr>
+                        <tr>
+                            <td class="td1">Internal Energy:</td>
+                            <td class="td2""><input type="number" disabled style="height: 32px; width:190px" value="{{IEmax}}"> &nbsp;&nbsp;<font size="4">joules</font></td>
+                        </tr>
+                        <tr>
+                            <td class="td1">Hot Resistance:</td>
+                            <td class="td2""><input type="number" disabled  style="height: 32px; width:190px;" value="{{HRmax}}"> &nbsp;&nbsp;<font size="4">ohms</font></td>
+                        </tr>                
+                    </table>
+                    <input type="submit" href="{% url 'Elements:res_grph' %}" style="width:100px; height:40px;margin-left:400px; margin-top: 20px; font-size:20px;color:white; background-color:darkblue" value="plot" class="btn btn-warning" id="btn_plot"  onclick="reposted()" />
+                    <div style="margin-left:10px; margin-bottom: 0px; width: 450px; height: 300px;" >  <!-- border: 1px solid blue; -->
+                        <img src="data:image/png;base64,{{ graph4 }}" alt="Voltage and Current Graph" class="blog-image" style="width: 450px; height: 300px;margin-left: 20px;">
+				    </div> 
+                </div>            
+        </div>
+    </form>                   
+{% endblock %}

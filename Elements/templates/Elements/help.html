@@ -1,0 +1,182 @@
+{% extends "Elements/layout.html" %}
+
+{% block content %}
+<script>
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function() {
+        output.innerHTML = this.value;
+    }
+</script>
+<div  style="margin: 50px; width: 90%;" class="col-sm-12" ">
+    <h2 style="color: darkblue;">Project development process for Electrical Notes project</h2>
+        <p style="font-size: 24px; text-align: center; text-align: justify;"> &nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This process starts by 
+            creating one folder at suitable location on the drive where python is installed. If we open
+            any folder in such drive in terminal and type in python then python's interactive window starts.
+            Once folder is created open the folder using vs code. Then at the terminal where folder name is
+            shown at terminal prompt type in <em style="color: blue;">virtualenv venv</em> and press 
+            enter. Folder named venv gets created in the folder. Now open the folder in file explorer and 
+            go to Scripts and activate, right click activate file and copy the path. Now since our terminal 
+            is at our newly created folder, only path beyond venv ia required to be pested in the terminal.
+            On pesting appropiate path press enter so terminal will show that it is working in the newly
+            created virtual environment.
+        </p>
+        <p style="font-size: 24px; text-align: center; text-align: justify;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Now we shall be creating
+            new project using <em style="color: blue;">django-admin startproject ElectricalNotes</em> name
+            of this project is Electrical Notes. After project creation process completes we see new folder 
+            gets created along with venv folder inside our root folder from where we have started. Note that
+            our terminal works in virtual environment whose name is <em style="color: blue;">venv</em>. 
+            Our environment do not have django installed so we will execute the command <em style="color: blue;">
+            pip install django</em> so django along with some other packages gets installed in our virtual environment.
+            Now shift to the folder Electrical Notes using the command <em style="color: blue;">
+            cd ElectricalNotes</em> and run the command <em style="color: blue;">python manage.py startapp Elements
+            </em> so new application gets created. In this way we have two folders venv and ElectricalNotes 
+            in our root folder and ElectricalNotes and Elements folders inside ElectricalNotes folder created. 
+            Along with this one project and one application is created. 
+        </p>
+        <p style="font-size: 24px; text-align: center; text-align: justify;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Now we are expecting to view 
+            a page of our application. The process explained now overrides default page view. As shown below the code
+            inside the view.py file is changed.
+            <table style="margin-left: 300px; width: 50%; font-size: 20px; border: solid; border-color: blue;">
+                <tr>
+                    <th style="font-weight: bold; color: darkblue; background-color: rgb(193, 193, 214); height: 40px;">
+                        <center>views.py</center> 
+                    </th>                                        
+                </tr>
+                <tr>
+                    <td>
+                        <pre >
+                            <code>
+        side_bar_show = False
+        def home(request):
+            side_bar_show = True
+            return render(request, 'Elements/layout.html')
+                                
+        def help(request):
+            side_bar_show = False
+            return render(request, 'Elements/help.html')
+                            </code>
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+        </p>
+        <p style="font-size: 24px; text-align: center; text-align: justify;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The next change is
+            creation of two files layout.html and help.html. These files are created by first crating 
+            templates folder inside Elements folder then again we have to create Elements folder inside 
+            this newly created template folder. Finally the two files layout.html and help.html are created
+            inside the Elements folder. By adding ! sign to layout file and pressing spacebar boilerplate 
+            is created inside the layout file. Finally html code shown below is added to body tag of html
+            file.
+            <table style="margin-left: 60px; width: 50%; font-size: 20px; border: solid; border-color: blue;">
+                <tr>
+                    <th style="font-weight: bold; color: darkblue; background-color: rgb(193, 193, 214); height: 40px;">
+                        <center>layout.html</center> 
+                    </th>                                        
+                </tr>
+                <tr>
+                    <td>
+                        <pre >
+                            <code>
+        &lt;div class="row" style="width: 97%;margin-left: 20px;"&gt;
+            &lt;nav class="navbar navbar-expand-lg" style="background-color:#5122A1;height: 50px;"&gt;
+                &lt;a style="color: white;padding-left: 80px; font-size: 20px; font-weight:400;" href="/"&gt;Elements&lt;/a&gt;
+                &lt;a id="menu_ele" style="color: white;padding-left: 80px; font-size: 20px; font-weight:400;" 
+                onclick="show_menu('')" href="resistor"&gt;Resistor&lt;/a&gt;
+                &lt;a style="color: white;padding-left: 850px; font-size: 20px; font-weight:400; 
+                text-underline-position:above;" href="help"&gt;Help&lt;/a&gt;
+            &lt;/nav&gt;        
+        &lt;/div&gt;    
+        &lt;div class="row" style="padding-top: 8px; padding-left: 15px;"&gt;
+            {&nbsp;% if SB == True %}
+                &lt;div class="col-sm-2" &gt;
+                    &lt;ul class="accordion accordion-flush list-unstyled"&gt;
+                        &lt;li class="accordion-item border-bottom-0"&gt;                        
+                            &lt;button  id="button0"  class="mybutton" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" 
+                            aria-expanded="false" aria-controls="flush-collapseFive" 
+                            onclick="show_menu('Resistor')" &gt;
+                                Resistor
+                            &lt;/button&gt;
+                            &lt;button  id="button0"  class="mybutton" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" 
+                            aria-expanded="false" aria-controls="flush-collapseFive" 
+                            onclick="show_menu('Inductor')" &gt;
+                                Inductor
+                            &lt;/button&gt;
+                            &lt;button  id="button0"  class="mybutton" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" 
+                            aria-expanded="false" aria-controls="flush-collapseFive" 
+                            onclick="show_menu('Capacitor')" &gt;
+                                Capacitor
+                            &lt;/button&gt;
+                            &lt;button  id="button0"  class="mybutton" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" 
+                            aria-expanded="false" aria-controls="flush-collapseFive" 
+                            onclick="show_menu('Source')" &gt;
+                                Source
+                            &lt;/button&gt;
+                            &lt;button  id="button0"  class="mybutton" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" 
+                            aria-expanded="false" aria-controls="flush-collapseFive" 
+                            onclick="show_menu('Diode')" &gt;
+                                Diode
+                            &lt;/button&gt;
+                            &lt;button  id="button0"  class="mybutton" type="button" 
+                            data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" 
+                            aria-expanded="false" aria-controls="flush-collapseFive" 
+                            onclick="show_menu('Transitor')" &gt;
+                                Transitor
+                            &lt;/button&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            {&nbsp;% endif %}        
+            &lt;div &gt;            
+                {&nbsp;% block content %}
+                            
+                {&nbsp;% endblock %} 
+            &lt;/div&gt;              
+        &lt;/div&gt; 
+                            </code>
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+        </p>
+        <p style="font-size: 24px; text-align: center; text-align: justify;">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Similarly code inside
+            the help.html file is shown below. Actual content of help file shall reside inside div tags that 
+            we see at the middle
+            <table style="margin-left: 300px; width: 50%; font-size: 20px; border: solid; border-color: blue;">
+                <tr>
+                    <th style="font-weight: bold; color: darkblue; background-color: rgb(193, 193, 214); height: 40px;">
+                        <center>help.html</center> 
+                    </th>                                        
+                </tr>
+                <tr>
+                    <td>
+                        <pre >
+                            <code>
+        {&nbsp;% extends "Elements/layout.html" %}
+
+        {&nbsp;% block content %}
+            &lt;div style="margin: 50px; width: 90%;"&gt;
+
+            &lt;/div&gt;
+        {&nbsp;% endblock %}
+                            </code>
+                        </pre>
+                    </td>
+                </tr>
+            </table>
+        </p>
+</div>
+
+{% endblock %}

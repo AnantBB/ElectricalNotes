@@ -1,0 +1,171 @@
+{% extends "Elements/layout.html" %}
+{% load static %}
+  {% block content %}
+    <div class="row">
+		  <div class="col-md-12">			
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Let us consider new phenomenon that is associated with current 
+                electricity. Description that we have made so far is also a part of current 
+                electricity, but this phenomenon not only explains flow of charged particles but also 
+                magnetic field associated with flow of current. When current flows in straight conductor
+                magnetic field is produced around the conductor in the form of concentric circles. When 
+                conductor is straight magnetic field is comparatively weak. But if we make the current 
+                to pass through circular conductor then the most of the field is concentrated within the
+                circular path, through which current passes. So the strength of magnetic field for 
+                circular path is higher than straight conductor. Further we may wound more number of 
+                turns instead of a single turn; under such geometrical configuration, magnetic field 
+                strength is still higher in comparison to single turn.
+            </p>
+            <img src="{% static 'Elements/Figure7.png' %}" class="center-block img-responsive" style="padding-left:40%" />
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The same prototype is shown in above figure. When certain numbers
+                of turns are wound, to increase the magnetic field strength, such device is known as 
+                solenoid, the figure that we are looking at, is a solenoid’s figure. The red rounds, of 
+                elliptical shape are, the paths followed by magnetic field when current passes through 
+                turns of conductor. We should keep in mind that elemental current carrying path is also 
+                sufficient to create the magnetic field. Forming a turn or a coil is only required to 
+                increase magnetic field strength. 
+            </p>
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; It is beneficial to put and understand the analogy between parameters of current 
+                electricity or ohms law, and magnetic field parameters. Voltage in current electricity 
+                is also called by a name emf that is analogous to mmf or magneto-motive force. Current 
+                is analogous to magnetic flux and lastly resistance is analogous to reluctance of 
+                magnetic path. Voltage is cause and current is effect, which corresponds to mmf is 
+                cause and magnetic field is effect. Further resistance and reluctance are both depend 
+                upon geometry of their shape in similar way, and both have specific value corresponding 
+                to materials used to carry current or magnetic flux.
+            </p>
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The first equation in figure 2 is similar to ohms law, that states as mmf 
+                = reluctance* flux. The mmf is a product of current and number of turns, and it is a 
+                cause of the magnetic field. mmf is measured in ampere-turns. The magnetic flux is 
+                measured in webers. The formula for reluctance of magnetic path is similar to resistance
+                formula, except the constant used is permeability, so it is appearing in denominator. 
+                Another difference is all the magnetic flux is not confined to the space assigned to 
+                carry it, which is termed as leakage flux. 
+            </p>
+            <img src="{% static 'Elements/Figure8.png' %}" class="center-block img-responsive" style="padding-left:30%" />
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If the current carried by solenoid coil is constant then flux established in magnetic 
+                path is also constant, and magnetic flux do not make any effect on solenoid’s 
+                performance except its existence. This feature is deliberately stated to start 
+                explaining the effect of change in magnetic flux on associated circuit. The change in 
+                magnetic flux, generates emf in the circuit, which is generally termed as induced emf. 
+                Therefore we have differentiated the equation NI = Φ*S with respect to time in Figure-2. The 
+                parameters Φ and I are only dependent on time and rest of them are constant. We have 
+                differentiated the equation and also multiplied by N. The result is that we could 
+                rearrange the equation to show the expression for induced emf. This induced emf is 
+                known as self-induced emf and parameter L is known as coefficient of self-induction. 
+                We should note that value of L is N2/S where both N and S are constants so L is also a 
+                constant.
+            </p>
+            <img src="{% static 'Elements/Figure9.png' %}" class="center-block img-responsive" style="padding-left:40%" />
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Now we will start building a solenoid coil which is known as inductor. The selected 
+                outer dimensions of solenoid or inductor are internal diameter is 30 mm, external 
+                diameter is 65 mm and axial length is 100 mm. This inductor is wound by using 1 mm2 
+                wire and 1424 turns are wound to form an inductor. We want to find the resistance of 
+                the coil first, so value of mean diameter is calculated from internal and external 
+                diameters first. From mean diameter 47.5 mm we can find out length of mean turn which 
+                is π into mean diameter Dm. Now we know resistivity of copper that is 16.8 mili-ohms, 
+                conductor length would be length of mean turn into number of turns 1424 and cross 
+                section of conductor is 1 mm2. In this way resistance calculates to be 3.59 ohms.
+            </p>
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Next constant that we may calculate is the coefficient of self-inductance L. First we 
+                have to find out the value of S that is reluctance of magnetic path. For finding this 
+                value we know permeability of free space 1.2566e-6, axial length is 100 mm or 0.1 meters
+                and cross section of magnetic circuit from internal diameter of coil which is 30 mm. 
+                Once we find the value of reluctance of magnetic circuit we can find out the second 
+                constant L from N2/S. This second constant calculates to 18 mH. 
+            </p>
+            <img src="{% static 'Elements/Figure10.png' %}" class="center-block img-responsive" style="padding-left:35%" />
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Now we are equipped to understand how inductor will responds to application of voltage 
+                and responds to change in current through it. If we look at the inductor that we have 
+                built more closely, then, it is clear that it is not simply a wire resistance but 
+                something more than that. We may separate out the resistance from coil for analysis 
+                purpose. What remains after separating out resistance is known as pure inductor without 
+                resistance. In this way we have second element in our discussion that is inductor. 
+                Similar to resistance, inductor is also shown schematically, as it is shown in Figure-3.                
+            </p>
+            <img src="{% static 'Elements/Figure11.png' %}" class="center-block img-responsive" style="padding-left:35%" />
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The circuit that we see have resistance of 3.59 ohms and inductor is of 18 mH. These two
+                elements are connected in series and are supplied by 12 volts dc supply. Since we have 
+                represented the inductor coil in the form of elements in the circuit drawn at right top 
+                corner, we can approach the phenomenon systematically. But if we consider that coil is 
+                connected to 12 volts supply having 3.59 ohms of resistance then we may conclude from 
+                ohms law that current of 3.34 amperes shall flow. But this estimation is not completely 
+                true; the reason is we have assumed that circuit will come to steady state 
+                instantaneously. Under steady state, rate of change of current is zero so induced emf  
+                is zero so this calculation is correct. 
+            </p>            
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; For understanding transient phenomenon we have to consider the starting instance at t = 
+                0, before t = 0 current is zero, but instantaneously current could not reach steady 
+                state value, this implies di/dt is too large and voltage across inductor would be very 
+                high. For approaching the problem we have to write differential equation, using 
+                Kirchhoff’s voltage law. Corresponding differential equation is written beyond the 
+                circuit diagram. If we observe this differential equation, we see that first term 
+                corresponds to voltage drop across inductor, second term is voltage drop across resistor
+                and sum of these two voltages are equated to dc voltage Vdc.
+            </p>
+            <img src="{% static 'Elements/Figure12.png' %}" class="center-block img-responsive" style="padding-left:35%" />
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The solution of differential equation has a constant steady state current term 
+                multiplied by exponential term. If we substitute t=0 in the solution then i = 0. Further
+                as we substitute value of t corresponding to 1 to 5 time constants, value of current 
+                reaches steady state value exponentially. The reason about why initial value of current
+                is zero, is found by looking at next equation for voltage across inductor, this value is
+                equal to Vdc at t = 0. Note that in our inductor the value of time constant is 5 mili-
+                seconds. 
+            </p>
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In this way we have reached the point where we have current through inductor and voltage
+                across inductor in the form of mathematical expression. Now let us move our attention 
+                towards graphical representation of these expressions. The first graph below yellow line
+                shows raising current, with initial value of current is zero.  But second graph, which 
+                is voltage across inductor is equal and opposite to applied voltage of 12 volts dc. This
+                situation is indicating toward a thump rule: “inductor acts like a open circuited element
+                at t = 0”. 
+            </p>
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; The next point that we should note is rate of change of current in first graph and rate 
+                of change of voltage in second graph are both maximum at t = 0. The value of current 
+                raised and value of voltage dropped in first time constant in both graphs is  maximum, 
+                that is 63% of final value of current and 63% of initial value of voltage. In other 
+                words the phenomenon is fast in first time constant, and becomes slow in all subsequent 
+                times. When transient comes to practically steady state, after five time constants, rate
+                of change of current with respects to time is almost zero. So voltage across inductor is
+                zero, and presence of inductor gets nullified. 
+            </p>
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Let us recall the start of explaining the inductor, we said another effect in addition 
+                to flow of current is the establishing of magnetic field. Now we could clearly 
+                distinguish between two phenomenon, after separating resistance from inductor coil. 
+                Inductor’s operation is entirely depends on magnetic field. The third graph below the 
+                yellow line is a graph of inductor power against time. The first two graphs are inductor
+                voltage and inductor current, if we take their product then the result is the power 
+                supplied to inductor or power absorbed by inductor. The energy absorbed by inductor is 
+                stored in the form of magnetic field. Since flux and current are directly proportional, 
+                when current raises exponentially flux also raises exponentially. 
+            </p>
+            <p class="p">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; If we observe power against time graph then power raises to a peak value before 
+                completion of first time constant. After value of power reaches to maximum and drops 
+                before first time constant energy supplied by 12 volts dc supply is 40 m-Joules. We 
+                should note that energy is a quantity like fluid that is supplied in 5 mili-sec. The 
+                ratio of energy and time is power or rate at which energy is supplied to inductor. The 
+                average power for first time constant is 40/5 = 8 watts, which is quite close to peak 
+                power of 10 watts. In second time constant period more 35 mili-joules of energy is 
+                stored in the inductor in the form of magnetic field. The average power for this period
+                is 7 watts which is comparatively low. For subsequent time periods the value of energy 
+                drops to 15, 6 and 3 mili-Joules respectively. Corresponding power values are 3, 1.5 and
+                0.75 watts, that supports our view that inductor no more function as inductor since rate
+                of change of current is reaching towards zero.
+            </p>
+      </div>
+    </div>
+  {% endblock %}
