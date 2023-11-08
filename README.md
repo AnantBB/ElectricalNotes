@@ -1,0 +1,2 @@
+# ElectricalNotes
+Wire wound resistor
